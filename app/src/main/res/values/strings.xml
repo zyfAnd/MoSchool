@@ -23,4 +23,14 @@
     <string name="permission_rationale">"Contacts permissions are needed for providing email
         completions."
     </string>
+    <string name="title_activity_user_login">Sign in</string>
+
+    <!-- Strings related to login -->
+    <string name="prompt_email">Email</string>
+    <string name="prompt_studentID">学号</string>
+    <string name="title_activity_register">Sign in</string>
+    <string name="article_hit">一次只加载15条，查看更多内容请刷新哦。</string>
+    <string name="title_activity_detail">DetailActivity</string>
+    <string name="school">教务处 ：http://202.199.155.34</string>
+    <string name="graduation">毕设管理 ：http://202.199.155.3:8080</string>
 </resources>

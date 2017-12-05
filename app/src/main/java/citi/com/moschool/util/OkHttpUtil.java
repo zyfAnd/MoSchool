@@ -258,7 +258,7 @@ public class OkHttpUtil {
     }
 
     /**
-     * 请求回调失败对应的回调方法 利用 handler.post 使得回调方法在UI线程中执行
+     * 请求回调失败对应的回调方法 利用 handler.post_article 使得回调方法在UI线程中执行
      *
      * @param call
      * @param e
@@ -276,7 +276,7 @@ public class OkHttpUtil {
     }
 
     /**
-     * 请求成功对应的回调方法 利用handler.post 使得回调方法在UI 线程中执行
+     * 请求成功对应的回调方法 利用handler.post_article 使得回调方法在UI 线程中执行
      *
      * @param bytes
      * @param callback

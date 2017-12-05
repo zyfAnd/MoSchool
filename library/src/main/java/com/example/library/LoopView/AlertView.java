@@ -111,7 +111,7 @@ public class AlertView implements OnItemSelectedListener {
 //        return day;
 //    }
 
-    public static enum Style {
+    public enum Style {
         ActionSheet,
         Alert,
         Date
@@ -181,7 +181,7 @@ public class AlertView implements OnItemSelectedListener {
         List<String> yearList = new ArrayList<>();
         List<String> monthList = new ArrayList<>();
         dayList = new ArrayList<>();
-        for (int i = 2009; i < endyear + 1; i++) {
+        for (int i = startyear; i < endyear + 1; i++) {
             yearList.add(i+"-"+(i+1) +"学年");
         }
         for (int i = 1; i < 4; i++) {

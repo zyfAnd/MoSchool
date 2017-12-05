@@ -1,6 +1,7 @@
 package citi.com.moschool.schedule.view;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.net.Uri;
 import android.os.Bundle;
@@ -10,6 +11,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -18,27 +20,38 @@ import java.util.ArrayList;
 import java.util.List;
 
 import citi.com.moschool.R;
+import citi.com.moschool.base.BaseFragment;
+import citi.com.moschool.main.view.LoginActivity;
 
 
-public class ScheduleFragment extends Fragment {
+public class ScheduleFragment extends BaseFragment {
+    private final String TAG = "ScheduleFragment";
+    private ScheduleDetailFragment scheduleDetailFragment = new ScheduleDetailFragment();
     private View view;
     private TabLayout mTabLayout;
     private ViewPager mViewPager;
 
-    @Nullable
+
     @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_schedule, null);
-        initView();
-        initTabLaout();
-        setupViewPager();
-        mTabLayout.setupWithViewPager(mViewPager);
+    protected View initView() {
+        view = View.inflate(mContext,R.layout.fragment_schedule, null);
+        mTabLayout = (TabLayout) view.findViewById(R.id.id_tablayout);
+        mViewPager = (ViewPager) view.findViewById(R.id.id_viewpager);
         return view;
     }
 
-    private void initView() {
-        mTabLayout = (TabLayout) view.findViewById(R.id.id_tablayout);
-        mViewPager = (ViewPager) view.findViewById(R.id.id_viewpager);
+    @Override
+    public void onActivityResult(int requestCode, int resultCode, Intent data) {
+//        super.onActivityResult(requestCode, resultCode, data);
+        Log.i(TAG, "onActivityResult: parent fragemnt"+resultCode);
+    }
+
+    @Override
+    protected void initData() {
+        super.initData();
+        initTabLaout();
+        setupViewPager();
+        mTabLayout.setupWithViewPager(mViewPager);
     }
 
     private void initTabLaout() {
@@ -48,7 +61,7 @@ public class ScheduleFragment extends Fragment {
     private void setupViewPager()
     {
         MyPagerAdapter myPagerAdapter = new MyPagerAdapter(getChildFragmentManager());
-        myPagerAdapter.addFragment(new ScheduleDetailFragment(),getString(R.string.schedule));
+        myPagerAdapter.addFragment(scheduleDetailFragment,getString(R.string.schedule));
         myPagerAdapter.addFragment(new ScoreFragment(),getString(R.string.score));
         mViewPager.setAdapter(myPagerAdapter);
     }

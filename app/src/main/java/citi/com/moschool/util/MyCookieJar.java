@@ -16,7 +16,7 @@ public class MyCookieJar implements CookieJar{
 
     @Override
     public void saveFromResponse(HttpUrl url, List<Cookie> cookies) {
-        this.cookies = cookies;
+        MyCookieJar.cookies = cookies;
     }
 
     @Override

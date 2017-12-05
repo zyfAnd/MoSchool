@@ -15,27 +15,27 @@ import java.util.ArrayList;
 import java.util.List;
 
 import citi.com.moschool.R;
+import citi.com.moschool.base.BaseFragment;
 import citi.com.moschool.home.view.RecommendFragment;
 import citi.com.moschool.home.view.RecruitFragment;
 
-public class HomeFragment extends Fragment {
+public class HomeFragment extends BaseFragment {
     private View view;
-private TabLayout mTablayout;
+    private TabLayout mTablayout;
     private ViewPager mViewPager;
-    @Nullable
-    @Override
-    public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
-        view = inflater.inflate(R.layout.fragment_home, null);
-        initView();
+
+    public View initView()
+    {
+        view = View.inflate(mContext,R.layout.fragment_home, null);
+        mTablayout = (TabLayout) view.findViewById(R.id.id_tablayout);
+        mViewPager = (ViewPager) view.findViewById(R.id.id_viewpager);
+
         initTabLayout();
         setupViewPager();
         mTablayout.setupWithViewPager(mViewPager);
+
+
         return view;
-    }
-    private void initView()
-    {
-        mTablayout = (TabLayout) view.findViewById(R.id.id_tablayout);
-        mViewPager = (ViewPager) view.findViewById(R.id.id_viewpager);
     }
     private void initTabLayout()
     {

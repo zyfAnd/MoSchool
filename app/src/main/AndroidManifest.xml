@@ -3,28 +3,73 @@
     package="citi.com.moschool">
 
     <!-- To auto-complete the email text field in the login form with the user's emails -->
-    <uses-permission android:name="android.permission.INTERNET"/>
+    <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.READ_PROFILE" />
     <uses-permission android:name="android.permission.READ_CONTACTS" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <!-- 往sdcard中写入数据的权限 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <!-- 在sdcard中创建/删除文件的权限 -->
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS" />
 
     <application
+        android:name=".main.App"
         android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
+        android:icon="@mipmap/logo"
         android:label="@string/app_name"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".main.view.MainActivity">
+        <activity android:name=".main.view.SplashActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".main.view.SplashActivity"></activity>
+        <activity android:name=".main.view.MainActivity" />
         <activity
             android:name=".main.view.LoginActivity"
-            android:label="@string/title_activity_login"></activity>
+            android:label="@string/title_activity_login" />
+        <activity
+            android:name=".mine.view.UserLoginActivity"
+            android:label="@string/title_activity_user_login" />
+        <activity
+            android:name=".mine.view.RegisterActivity"
+            android:label="@string/title_activity_register" />
+        <activity android:name=".found.PostActivity" />
+        <activity
+            android:name=".main.view.DetailActivity"
+            android:label="@string/title_activity_detail"
+            android:theme="@style/AppTheme" />
+        <activity
+            android:name="com.awen.photo.photopick.ui.ClipPictureActivity"
+            android:theme="@style/PhoAppTheme.AppTheme" />
+        <activity
+            android:name="com.awen.photo.photopick.ui.PhotoPagerActivity"
+            android:theme="@style/PhoAppTheme.AppTheme" />
+        <activity
+            android:name="com.awen.photo.photopick.ui.PhotoPickActivity"
+            android:theme="@style/PhoAppTheme.AppTheme" />
+        <activity
+            android:name="com.awen.photo.photopick.ui.PhotoPreviewActivity"
+            android:theme="@style/PhoAppTheme.AppTheme" />
+
+        <provider
+            android:name="android.support.v4.content.FileProvider"
+            android:authorities="citi.com.moschool.fileprovider"
+            android:exported="false"
+            android:grantUriPermissions="true">
+            <meta-data
+                android:name="android.support.FILE_PROVIDER_PATHS"
+                android:resource="@xml/file_paths" />
+        </provider>
+
+        <activity android:name=".main.view.BannerActivity" />
+        <activity android:name=".mine.AboutActivity"></activity>
+        <service android:name=".service.AutoUpdateService"></service>
     </application>
 
 </manifest>

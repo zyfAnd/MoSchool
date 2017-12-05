@@ -7,111 +7,53 @@ import android.os.Parcelable;
  * Created by zhang on 2017/3/10.
  */
 
-public class Score implements Parcelable {
-    //学科
-    private String subject;
-    //课程类别
-    private String category;
+public class Score  {
+    //课程名称
+    private String td3;
     //平时成绩
-    private String peacetimeScore;
+    private String td7;
     //期末成绩
-    private String finalScore;
-    //总评成绩
-    private String totalScore;
-    //学分
-    private String credit;
-    //绩点
-//    private String gradePoint;
+    private String td9;
 
-    public String getSubject() {
-        return subject;
+    public String getTd3() {
+        return td3;
     }
 
-    public void setSubject(String subject) {
-        this.subject = subject;
+    public void setTd3(String td3) {
+        this.td3 = td3;
     }
 
-    public String getCategory() {
-        return category;
+    public String getTd7() {
+        return td7;
     }
 
-    public void setCategory(String category) {
-        this.category = category;
+    public void setTd7(String td7) {
+        this.td7 = td7;
     }
 
-    public String getPeacetimeScore() {
-        return peacetimeScore;
+    public String getTd9() {
+        return td9;
     }
 
-    public void setPeacetimeScore(String peacetimeScore) {
-        this.peacetimeScore = peacetimeScore;
+    public void setTd9(String td9) {
+        this.td9 = td9;
     }
 
-    public String getTotalScore() {
-        return totalScore;
+    public Score(String td3, String td7, String td9) {
+        this.td3 = td3;
+        this.td7 = td7;
+        this.td9 = td9;
     }
 
-    public void setTotalScore(String totalScore) {
-        this.totalScore = totalScore;
-    }
-
-    public String getFinalScore() {
-        return finalScore;
-    }
-
-    public void setFinalScore(String finalScore) {
-        this.finalScore = finalScore;
-    }
-
-    public String getCredit() {
-        return credit;
-    }
-
-    public void setCredit(String credit) {
-        this.credit = credit;
-    }
-//
-//    public String getGradePoint() {
-//        return gradePoint;
-//    }
-//
-//    public void setGradePoint(String gradePoint) {
-//        this.gradePoint = gradePoint;
-//    }
-
-    @Override
-    public int describeContents() {
-        return 0;
+    public Score() {
     }
 
     @Override
-    public void writeToParcel(Parcel dest, int flags) {
-        dest.writeString(subject);
-        dest.writeString(category);
-        dest.writeString(peacetimeScore);
-        dest.writeString(finalScore);
-        dest.writeString(totalScore);
-        dest.writeString(credit);
-//        dest.writeString(gradePoint);
-
+    public String toString() {
+        return "Score{" +
+                "td3='" + td3 + '\'' +
+                ", td7='" + td7 + '\'' +
+                ", td9='" + td9 + '\'' +
+                '}';
     }
-    public static final Parcelable.Creator<Score> CREATOR = new Creator<Score>() {
-        @Override
-        public Score createFromParcel(Parcel source) {
-            Score score = new Score();
-            score.subject  = source.readString();
-            score.category = source.readString();
-            score.peacetimeScore = source.readString();
-            score.finalScore = source.readString();
-            score.totalScore = source.readString();
-            score.credit = source.readString();
-//            score.gradePoint  =source.readString();
-            return score;
-        }
-
-        @Override
-        public Score[] newArray(int size) {
-            return new Score[size];
-        }
-    };
 }

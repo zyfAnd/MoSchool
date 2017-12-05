@@ -7,5 +7,5 @@ import android.view.View;
  */
 
 public interface MainPresenter {
-    public void switchNavigation(int id);
+    void switchNavigation(int id);
 }
